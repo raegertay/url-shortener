@@ -1,7 +1,13 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
+const mongoose = require('mongoose')
 
 const app = express()
+
+moongoose.connect('mongodb://localhost/url-shortener', {
+  useMongoClient: true
+})
+mongoose.Promise = global.Promise
 
 // Set default layout
 app.engine('handlebars', exphbs({defaultLayout: 'main'}))
