@@ -2,8 +2,8 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const urlSchema = new Schema({
-  long_url: { type: String, required: true, unique: true },
-  short_url: String
+  longUrl: { type: String, required: true, unique: true },
+  shortUrl: String
 })
 
 const Url = mongoose.model('Url', urlSchema)
