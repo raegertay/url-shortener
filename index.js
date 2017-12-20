@@ -23,6 +23,8 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}))
 // Set handlebars to be the default view engine
 app.set('view engine', 'handlebars')
 
+const development_domain = 'http://localhost:3000/'
+
 // Routes & Controllers
 app.get('/', function(req, res) {
   res.render('new')
@@ -32,7 +34,7 @@ app.post('/urls', function(req, res) {
   // console.log(req.body)
   // res.send(req.body)
   let urlParams = req.body
-  urlParams.shortUrl = 'acb123'
+  urlParams.shortUrl = generateShortUrl()
 
   // const newUrl = new Url(urlParams)
   // newUrl.save(function (err) {
@@ -49,7 +51,7 @@ app.post('/urls', function(req, res) {
       return
     }
     console.log(url)
-    res.send(url)
+    res.render('new', {shortUrl: development_domain + url.shortUrl})
   })
 })
 
@@ -63,6 +65,20 @@ app.get('/urls', function(req, res) {
   })
 })
 
+app.get('/:shortUrl', function(req, res) {
+  Url.findOne({ shortUrl: req.params.shortUrl }, function(err, url) {
+    res.redirect(url.longUrl)
+  })
+})
+
 app.listen(3000)
 
 // Helper methods
+const generateShortUrl = () => {
+  const alphaNumerics = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijqlmnopqrstuvwxyz0123456789'
+  let shortUrl = ''
+  for(let i = 0; i < 6; i++) {
+    shortUrl += alphaNumerics[Math.floor(Math.random() * alphaNumerics.length)]
+  }
+  return shortUrl
+}

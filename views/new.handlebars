@@ -1,8 +1,13 @@
 <h2>URL Shortener</h2>
 
+<a href='urls'>History</a>
+
 <form method="POST" action="/urls">
   <label for="longUrl">Url</label>
   <input type="text" name="longUrl">
 
   <input id="longUrl" type="submit" value='Shorten'>
 </form>
+
+<h5>Short Url:</h5>
+<p>{{shortUrl}}</p>
