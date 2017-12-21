@@ -9,5 +9,7 @@
   <input id="longUrl" type="submit" value='Shorten'>
 </form>
 
-<h5>Short Url:</h5>
-<p>{{shortUrl}}</p>
+{{#if shortUrl}}
+  <h5>Short Url:</h5>
+  <p>{{shortUrl}}</p>
+{{/if}}

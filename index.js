@@ -23,7 +23,7 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}))
 // Set handlebars to be the default view engine
 app.set('view engine', 'handlebars')
 
-const development_domain = 'http://localhost:3000/'
+const domain = 'http://localhost:3000/'
 
 // Routes & Controllers
 app.get('/', function(req, res) {
@@ -51,7 +51,7 @@ app.post('/urls', function(req, res) {
       return
     }
     console.log(url)
-    res.render('new', {shortUrl: development_domain + url.shortUrl})
+    res.render('new', {shortUrl: domain + url.shortUrl})
   })
 })
 
@@ -61,7 +61,7 @@ app.get('/urls', function(req, res) {
       console.log(err)
       return
     }
-    res.render('index', {urls: urls})
+    res.render('index', {urls: urls, domain: domain})
   })
 })
 
