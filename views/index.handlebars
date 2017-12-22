@@ -1,11 +1,26 @@
-<h4>History</h4>
+<div class='container'>
 
-<a href='/'>Home</a>
+  <h3 class='text-center'>History</h3>
 
-<ul>
-  {{#each urls}}
-    <li>
-      {{this.longUrl}} - {{this.shortUrl}}
-    </li>
-  {{/each}}
-</ul>
+  <a href='/'>Home</a>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Original Url</th>
+        <th scope="col">Shortened Url</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each urls}}
+        <tr>
+          <th scope="row">{{inc @index}}</th>
+          <td>{{this.longUrl}}</td>
+          <td>{{this.shortUrl}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+</div>

@@ -1,15 +1,24 @@
-<h2>URL Shortener</h2>
+<div class='container pt-5'>
 
-<a href='urls'>History</a>
+  <h2 class='text-center'>URL Shortener</h2>
 
-<form method="POST" action="/urls">
-  <label for="longUrl">Url</label>
-  <input type="text" name="longUrl">
+  <a href='urls' class='float-right'>History</a>
 
-  <input id="longUrl" type="submit" value='Shorten'>
-</form>
+  <form method="POST" action="/urls">
+    <div class="form-group">
+      <label for="longUrl">Url</label>
+      <input type="text" name="longUrl" class="form-control" placeholder='Enter a url...'>
+    </div>
+    <div class='text-center'>
+      <button id="longUrl" type="submit" class="btn btn-primary btn-sm mx-auto">Shorten Url!</button>
+    </div>
+  </form>
 
-{{#if shortUrl}}
-  <h5>Short Url:</h5>
-  <p>{{shortUrl}}</p>
-{{/if}}
+  <br />
+
+  {{#if shortUrl}}
+    <h5 class='text-center'>Shortened Url:</h5>
+    <p class='text-center'><strong>{{shortUrl}}</strong></p>
+  {{/if}}
+
+</div>

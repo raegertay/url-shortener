@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
 const Url = require('./models/url')
 const bodyParser = require('body-parser')
+const Handlebars = require('handlebars');
 
 const app = express()
 
@@ -87,3 +88,8 @@ const generateShortUrl = () => {
   }
   return shortUrl
 }
+
+Handlebars.registerHelper("inc", function(value, options)
+{
+    return parseInt(value) + 1;
+});
