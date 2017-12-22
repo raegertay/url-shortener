@@ -58,10 +58,15 @@ app.post('/urls', function(req, res) {
 app.get('/urls', function(req, res) {
   Url.find({}, function(err, urls) {
     if (err) {
-      console.log(err)
+      console.log('Error encountered:' + err)
       return
     }
-    res.render('index', {urls: urls, domain: domain})
+    urls = urls.map(url => {
+      url.shortUrl = domain + url.shortUrl
+      return url
+    })
+    console.log(urls)
+    res.render('index', {urls: urls})
   })
 })
 
