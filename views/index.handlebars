@@ -16,8 +16,8 @@
       {{#each urls}}
         <tr>
           <th scope="row">{{inc @index}}</th>
-          <td>{{this.longUrl}}</td>
-          <td>{{this.shortUrl}}</td>
+          <td><a href={{this.longUrl}} target='_blank' >{{this.longUrl}}</a></td>
+          <td><a href={{this.shortUrl}} target='_blank' >{{this.shortUrl}}</a></td>
         </tr>
       {{/each}}
     </tbody>
