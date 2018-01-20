@@ -56,7 +56,7 @@ app.post('/urls', function(req, res) {
   })
 })
 
-app.get('/urls', function(req, res) {
+app.get('/urls/history', function(req, res) {
   Url.find({}, function(err, urls) {
     if (err) {
       console.log('Error encountered:' + err)
